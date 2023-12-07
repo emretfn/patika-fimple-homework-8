@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  background-color: var(--primary-light);
+  min-height: calc(100vh - 5rem);
+  border-radius: 5rem 5rem 0 0;
+  padding: 3rem;
+}
+
+.wrapper {
+  display: grid;
+  width: 100%;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
