@@ -1,3 +1,8 @@
+:root {
+  --primary: #6366f1;
+  --primary-light: #c7d2fe;
+}
+
 * {
   margin: 0;
   padding: 0;
