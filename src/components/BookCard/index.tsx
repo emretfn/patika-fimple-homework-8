@@ -17,11 +17,7 @@ export default function BookCard({ book }: BookCardProps) {
 
       <div className={styles.content}>
         <h2 className={styles.title}>{book.volumeInfo.title}</h2>
-        <h3 className={styles.author}>
-          {book.volumeInfo?.authors?.map((author) => (
-            <span key={author}>{author}</span>
-          ))}
-        </h3>
+        <h3 className={styles.author}>{book.volumeInfo.authors?.[0]}</h3>
       </div>
     </div>
   );
