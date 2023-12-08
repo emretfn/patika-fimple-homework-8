@@ -12,3 +12,15 @@
   gap: 1rem;
   grid-template-columns: repeat(8, 1fr);
 }
+
+.container > .loader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container > .loader > svg {
+  width: 3rem;
+  height: 3rem;
+}
