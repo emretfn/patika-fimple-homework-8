@@ -1,30 +1,26 @@
-# React + TypeScript + Vite
+# Book Search Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a book search application where users can search for books and view their details. The project is built with React and TypeScript and is configured with Vite.
 
-Currently, two official plugins are available:
+## See Live
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The live version of the project can be accessed at [here](https://patika-fimple-homework-8.vercel.app)
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- `src/apis/books`: Contains the book search API.
+- `src/components`: Contains the React components of the application. This includes components like `BookList` for listing books and `SearchInput` for providing the search functionality.
+- `src/hooks`: Contains custom React hooks. This includes the `useSearch` hook for managing the search state.
+- `src/pages`: Contains the pages of the application. This includes the home page and the book detail page.
+- `src/routes`: Contains the routes of the application.
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+1. Clone the project.
+2. Run the `npm install` or `pnpm install` command.
+3. Create a `.env.local` file and add the necessary environment variables.
+4. Run the `npm run dev` or `pnpm run dev` command.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Usage
+
+On the main page, enter a book name into the search box and press the Enter key. The search results will be listed below. When you click on a book, you will be redirected to the book's detail page.
