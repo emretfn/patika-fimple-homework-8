@@ -3,12 +3,14 @@ import styles from "./styles.module.css";
 import { fetchBooks } from "../../apis/books";
 import { useQuery } from "@tanstack/react-query";
 import { BooksResponse } from "../../types";
+import { useSearch } from "../../hooks/useSearch";
 
-export default function BookList({ search }: { search: string }) {
+export default function BookList() {
+  const searchQuery = useSearch((state) => state.search);
   const { data, isLoading, isError } = useQuery<BooksResponse>({
-    queryKey: ["books", search],
-    queryFn: () => fetchBooks(search),
-    enabled: !!search,
+    queryKey: ["books", searchQuery],
+    queryFn: () => fetchBooks(searchQuery),
+    enabled: !!searchQuery,
   });
 
   if (isLoading) return <div>Loading...</div>;

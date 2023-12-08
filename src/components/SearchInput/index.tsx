@@ -1,13 +1,11 @@
 import { Search } from "lucide-react";
 import styles from "./styles.module.css";
 import { useState } from "react";
+import { useSearch } from "../../hooks/useSearch";
 
-interface Props {
-  setSearch: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export default function SearchInput({ setSearch }: Props) {
+export default function SearchInput() {
   const [searchText, setSearchText] = useState("");
+  const setSearch = useSearch((state) => state.setSearch);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSearch(searchText);
