@@ -1,0 +1,87 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--primary-light);
+}
+
+.imageSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  padding: 0 4rem;
+}
+
+.imageSection > img {
+  aspect-ratio: 3/4;
+  max-width: 100%;
+  border-radius: 3rem;
+  border: 2px solid var(--primary);
+}
+
+.contentSection {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0 4rem;
+}
+
+.contentSection > .title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.contentSection > .author {
+  font-size: 1.5rem;
+}
+
+.contentSection > .description {
+  font-size: 1.25rem;
+}
+
+.contentSection > .pageCount {
+  font-size: 1.25rem;
+}
+
+.contentSection > .pageCount > span {
+  font-weight: bold;
+}
+
+.contentSection > .publishedDate {
+  font-size: 1.25rem;
+}
+
+.contentSection > .publishedDate > span {
+  font-weight: bold;
+}
+
+.contentSection > .publisher {
+  font-size: 1.25rem;
+}
+
+.contentSection > .publisher > span {
+  font-weight: bold;
+}
+
+.container > button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 2rem;
+  right: 2rem;
+  background-color: white;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 9999px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+}
