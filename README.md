@@ -17,9 +17,11 @@ The live version of the project can be accessed at [here](https://patika-fimple-
 ## Installation
 
 1. Clone the project.
-2. Run the `npm install` or `pnpm install` command.
-3. Create a `.env.local` file and add the necessary environment variables.
-4. Run the `npm run dev` or `pnpm run dev` command.
+2. Navigate to the project directory.
+3. Run the `pnpm install` command to install the necessary dependencies.
+4. Create a `.env.local` file in the root directory of the project.
+5. Inside the `.env.local` file, add the `VITE_API_URL` variable and set it to the URL of your API.
+6. Run the `pnpm run dev` command to start the development server.
 
 ## Usage
 
