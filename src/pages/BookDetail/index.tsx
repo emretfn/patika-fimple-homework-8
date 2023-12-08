@@ -1,27 +1,45 @@
 import { X } from "lucide-react";
 import styles from "./styles.module.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { fetchBook } from "../../apis/books";
+import { BookDetailResponse } from "../../types";
+import fallbackImage from "../../../public/default-fallback-image.png?url";
 
 export default function BookDetail() {
   const navigate = useNavigate();
+  const params = useParams();
+
+  const { data, isLoading, error } = useQuery<BookDetailResponse>({
+    queryKey: ["book", params.bookId],
+    queryFn: async () => fetchBook(params.bookId!),
+    enabled: !!params?.bookId,
+  });
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error...</div>;
+  }
+
+  console.log(data);
+
   return (
     <div className={styles.container}>
       <div className={styles.imageSection}>
-        <img
-          src="https://books.google.com/books/publisher/content?id=VbjHDAAAQBAJ&printsec=frontcover&img=1&zoom=4&edge=curl&imgtk=AFLRE70nqvnkXqRcbMypp4ir_kEB2KLh35n-_Tv8hOcusRytuqTVguYsbhfZ67p5jYwGcedF8Lzz7B4aS4hsccw6rYpNfRIpu10h_ubyzQE96AKex0DEvuiYqFuO6cYOVkoOBNtbM3Gt&source=gbs_api"
-          alt=""
-        />
+        <img src={data?.volumeInfo.imageLinks?.thumbnail ?? fallbackImage} alt="" />
       </div>
       <div className={styles.contentSection}>
-        <h1 className={styles.title}>Nutuk</h1>
-        <h2 className={styles.author}>Mustafa Kemal Atatürk</h2>
-        <p className={styles.description}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus, excepturi eos?
-          Dolore labore accusantium reiciendis eius officia voluptatem ratione veniam voluptas
-          explicabo autem unde earum nesciunt, repellat consequuntur perspiciatis ea inventore!
-          Illum placeat pariatur, esse adipisci id cumque modi eveniet dolorum repudiandae
-          perferendis, numquam in quia rerum accusamus repellendus laboriosam.
-        </p>
+        <h1 className={styles.title}>{data?.volumeInfo.title}</h1>
+        <h2 className={styles.author}>{data?.volumeInfo.authors[0]}</h2>
+        {data?.volumeInfo.description && (
+          <p
+            className={styles.description}
+            dangerouslySetInnerHTML={{ __html: data?.volumeInfo.description }}
+          />
+        )}
         <p className={styles.pageCount}>
           <span>Sayfa Sayısı:</span> 100
         </p>
