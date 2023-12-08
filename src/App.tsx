@@ -1,11 +1,14 @@
 import BookList from "./components/BookList";
 import SearchInput from "./components/SearchInput";
+import { useState } from "react";
 
 function App() {
+  const [search, setSearch] = useState("nutuk");
+
   return (
     <>
-      <SearchInput />
-      <BookList />
+      <SearchInput setSearch={setSearch} />
+      <BookList search={search} />
     </>
   );
 }
