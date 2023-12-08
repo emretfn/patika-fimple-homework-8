@@ -1,8 +1,8 @@
-import BookList from "./components/BookList";
-import SearchInput from "./components/SearchInput";
+import BookList from "../components/BookList";
+import SearchInput from "../components/SearchInput";
 import { useState } from "react";
 
-function App() {
+function Home() {
   const [search, setSearch] = useState("nutuk");
 
   return (
@@ -13,4 +13,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
